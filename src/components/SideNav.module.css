@@ -1,0 +1,53 @@
+.sideNav {
+  height: 100%;
+  width: 3%;
+  background-color: var(--darkest);
+  display: flex;
+  flex-direction: column;
+  padding: 20px 0px;
+}
+
+.sideNav div {
+  display: flex;
+  flex-direction: column;
+  font-size: 1.25vw;
+  color: var(--lightestDark);
+}
+
+.sideNav svg {
+  padding: 10px;
+  border-radius: 5px;
+  transition: 0.25s;
+  cursor: pointer;
+}
+
+.sideNav svg:hover {
+  background-color: var(--purple);
+  color: var(--lightestDark);
+}
+
+.active {
+  background-color: var(--purple);
+  color: var(--light);
+}
+
+.top {
+  margin: auto;
+  margin-top: 0;
+}
+
+.top img {
+  width: 75%;
+  margin: auto;
+}
+
+.middle {
+  margin: auto;
+  gap: 50px;
+}
+
+.bottom {
+  margin: auto;
+  margin-bottom: 0;
+  gap: 10px;
+}
