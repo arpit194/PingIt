@@ -5,12 +5,23 @@ import {
   faUser,
   faMessage,
   faAddressCard,
-  faSun,
 } from "@fortawesome/free-regular-svg-icons";
 
-import { faGear } from "@fortawesome/free-solid-svg-icons";
+import { faGear, faPowerOff } from "@fortawesome/free-solid-svg-icons";
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { authActions } from "../store/authSlice";
+import { dataActions } from "../store/dataSlice";
 
 const SideNav = ({ section, setSection }) => {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const logout = () => {
+    dispatch(authActions.logout());
+    dispatch(dataActions.clearData());
+    navigate("/login");
+  };
   return (
     <div className={classes.sideNav}>
       <div className={classes.top}>
@@ -40,7 +51,7 @@ const SideNav = ({ section, setSection }) => {
         />
       </div>
       <div className={classes.bottom}>
-        <FontAwesomeIcon icon={faSun} />
+        <FontAwesomeIcon icon={faPowerOff} onClick={logout} />
         <FontAwesomeIcon
           icon={faGear}
           className={section === "settings" ? classes.active : ""}

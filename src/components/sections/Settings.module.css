@@ -48,11 +48,11 @@
   margin: auto;
   position: relative;
   display: flex;
+  aspect-ratio: 1;
 }
 
 .image {
-  font-size: 10vh;
-  color: var(--purple);
+  width: 100%;
   margin: auto;
 }
 
@@ -205,4 +205,26 @@
   background-color: var(--purple);
   color: var(--light);
   cursor: pointer;
+}
+
+@media only screen and (min-width: 0px) and (max-width: 480px) {
+  .headerText {
+    font-size: 6vw;
+  }
+
+  .options {
+    font-size: 4vw;
+  }
+
+  .edit {
+    font-size: 3vw;
+  }
+
+  .statusMessage {
+    height: 10%;
+  }
+
+  .details {
+    gap: 10px;
+  }
 }

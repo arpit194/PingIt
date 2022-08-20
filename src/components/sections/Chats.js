@@ -1,9 +1,43 @@
 import { faSearch, faUserPlus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import { getConversations } from "../../utils/APIRoutes";
+import Conversation from "./chat/Conversation";
 import classes from "./Chats.module.css";
+import { useSelector, useDispatch } from "react-redux";
+import Spinner from "../Spinner";
+import { useRequest } from "../../hooks/requestHook";
+import { dataActions } from "../../store/dataSlice";
 
 const Chats = () => {
+  const conversations = useSelector((state) => state.data.conversations);
+
+  const { loading, sendGetRequest } = useRequest();
+  const dispatch = useDispatch();
+
+  const toastOptions = {
+    position: "bottom-right",
+    autoClose: 5000,
+    pauseOnHover: true,
+    draggable: true,
+    theme: "dark",
+  };
+
+  useEffect(() => {
+    const getContacts = async () => {
+      const data = await sendGetRequest(getConversations);
+
+      if (data.status) {
+        dispatch(dataActions.setConversations(data.conversations));
+      } else {
+        toast.error(data.message, toastOptions);
+      }
+    };
+    if (conversations.length == 0) getContacts();
+  }, []);
+
   return (
     <div className={classes.chats}>
       <div className={classes.header}>
@@ -16,33 +50,14 @@ const Chats = () => {
         <div className={classes.searchBar}>
           <input placeholder="Search users" />
         </div>
-        <div className={classes.addIcon}>
-          <FontAwesomeIcon icon={faUserPlus} />
-        </div>
       </div>
       <div className={classes.messages}>
-        <div className={classes.chat}>
-          <div className={classes.image}>
-            <div className={classes.circle}>A</div>
-          </div>
-          <div className={classes.name}>Arpit Patel</div>
-          <div className={classes.time}>05 Min</div>
-        </div>
-        <div className={classes.chat}>
-          <div className={classes.image}>
-            <div className={classes.circle}>S</div>
-          </div>
-          <div className={classes.name}>Saloni Patidar</div>
-          <div className={classes.time}>10:12 AM</div>
-        </div>
-        <div className={classes.chat}>
-          <div className={classes.image}>
-            <div className={classes.circle}>U</div>
-          </div>
-          <div className={classes.name}>Mummy</div>
-          <div className={classes.time}>02 Hrs</div>
-        </div>
+        {loading && <Spinner />}
+        {conversations.map((convo) => {
+          return <Conversation key={convo._id} conversation={convo} />;
+        })}
       </div>
+      <ToastContainer />
     </div>
   );
 };

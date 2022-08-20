@@ -1,0 +1,60 @@
+.user {
+  background-color: var(--darkest);
+  border-radius: 5px;
+  color: var(--light);
+  padding: 0.5vw 1vw;
+  display: flex;
+  position: relative;
+  gap: 1vw;
+}
+
+.userImage {
+  width: 20%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.image {
+  width: 100%;
+}
+
+.userDetails {
+  width: 80%;
+}
+
+.name {
+  font-size: 1vw;
+}
+
+.userName {
+  font-size: 0.75vw;
+}
+
+.addContact {
+  width: 10%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1vw;
+  cursor: pointer;
+}
+
+@media only screen and (min-width: 0px) and (max-width: 480px) {
+  .user {
+    padding: 1vw 2vw;
+    gap: 10px;
+  }
+
+  .name {
+    font-size: 4vw;
+  }
+
+  .userName {
+    font-size: 3vw;
+  }
+
+  .addContact {
+    font-size: 4vw;
+  }
+}

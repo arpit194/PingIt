@@ -82,57 +82,16 @@
   overflow: auto;
 }
 
-.chat {
-  width: 100%;
-  height: 10%;
-  display: flex;
-  background-color: var(--darkest);
-  border: 2px solid var(--darkest);
-  border-radius: 5px;
-  gap: 10px;
-  padding: 0 10px;
-  margin-bottom: 20px;
-  cursor: pointer;
-  transition: 0.25s;
-}
+@media only screen and (min-width: 0px) and (max-width: 480px) {
+  .headerText {
+    font-size: 6vw;
+  }
 
-.chat:hover {
-  border: 2px solid var(--lightDark);
-}
+  .search {
+    height: 10%;
+  }
 
-.image {
-  width: 15%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.circle {
-  width: 75%;
-  aspect-ratio: 1;
-  border-radius: 50%;
-  background-color: var(--purple);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: var(--light);
-  font-weight: 300;
-}
-
-.name {
-  width: 70%;
-  display: flex;
-  align-items: center;
-  color: var(--light);
-  font-size: 1.25vw;
-}
-
-.time {
-  width: 15%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: var(--light);
-  font-weight: 300;
-  font-size: 0.75vw;
+  .searchIcon {
+    font-size: 4vw;
+  }
 }

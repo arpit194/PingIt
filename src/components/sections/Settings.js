@@ -2,16 +2,19 @@ import React, { useState } from "react";
 import classes from "./Settings.module.css";
 import {
   faEllipsisVertical,
-  faCircleUser,
   faPencil,
   faAngleDown,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import ProfileImage from "../ProfileImage";
+import { useSelector } from "react-redux";
 
 const Settings = () => {
   const [close, setClose] = useState(false);
   const [openStatus, setOpenStatus] = useState(false);
-  const [status, setStatus] = useState("Active");
+
+  const user = useSelector((state) => state.auth.user);
+  const [status, setStatus] = useState(user.status);
 
   return (
     <div className={classes.settingsContainer}>
@@ -24,12 +27,12 @@ const Settings = () => {
       </div>
       <div className={classes.profileImage}>
         <div className={classes.imageContainer}>
-          <FontAwesomeIcon icon={faCircleUser} className={classes.image} />
+          <ProfileImage image={null} className={classes.image} />
           <div className={classes.edit}>
             <FontAwesomeIcon icon={faPencil} />
           </div>
         </div>
-        <div className={classes.userName}>User Name</div>
+        <div className={classes.userName}>{user.userName}</div>
         <div className={classes.status}>
           <div className={classes.statusSelect}>
             <div
@@ -41,7 +44,7 @@ const Settings = () => {
               {status + " "}
               <FontAwesomeIcon
                 icon={faAngleDown}
-                style={{ fontSize: "0.75vw" }}
+                style={{ fontSize: "1vmax" }}
               />
             </div>
             <div
@@ -77,10 +80,11 @@ const Settings = () => {
           </div>
         </div>
       </div>
-      <textarea className={classes.statusMessage} placeholder={"Enter Status"}>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure, quidem!
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure, quidem!
-      </textarea>
+      <textarea
+        className={classes.statusMessage}
+        placeholder={"Enter Status"}
+        defaultValue={user.statusMessage}
+      ></textarea>
       <div className={classes.detailsContainer}>
         <div
           className={classes.detailsHeader}
@@ -96,23 +100,23 @@ const Settings = () => {
             <div className={classes.detailTitle}>Name</div>
             <input
               className={classes.detailValue}
-              defaultValue={"Arpit Patel"}
+              defaultValue={user.name}
               placeholder={"Enter Name"}
             />
           </div>
-          <div className={classes.detailsControl}>
+          {/* <div className={classes.detailsControl}>
             <div className={classes.detailTitle}>Email</div>
             <input
               className={classes.detailValue}
-              defaultValue={"arpit.patel194@gmail.com"}
+              defaultValue={user.email}
               placeholder={"Enter Email"}
             />
-          </div>
+          </div> */}
           <div className={classes.detailsControl}>
             <div className={classes.detailTitle}>Location</div>
             <input
               className={classes.detailValue}
-              defaultValue={"India"}
+              defaultValue={user.location}
               placeholder={"Enter Location"}
             />
           </div>

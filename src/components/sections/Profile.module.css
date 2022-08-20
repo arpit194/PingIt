@@ -48,11 +48,11 @@
   margin: auto;
   position: relative;
   display: flex;
+  aspect-ratio: 1;
 }
 
 .image {
-  font-size: 10vh;
-  color: var(--purple);
+  width: 100%;
   margin: auto;
 }
 
@@ -157,4 +157,23 @@
 
 .detailValue {
   color: var(--light);
+}
+
+.section {
+  width: 27%;
+  background-color: var(--darker);
+}
+
+@media only screen and (min-width: 0px) and (max-width: 480px) {
+  .headerText {
+    font-size: 6vw;
+  }
+
+  .options {
+    font-size: 3vw;
+  }
+
+  .edit {
+    font-size: 3vw;
+  }
 }

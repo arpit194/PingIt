@@ -43,21 +43,38 @@
   display: flex;
   background-color: var(--darkest);
   border-radius: 5px;
+  position: relative;
+  z-index: 10;
 }
 
 .searchIcon {
-  width: 15%;
   height: 100%;
+  margin-left: auto;
+  aspect-ratio: 1;
   font-size: 1vw;
-  color: var(--lightestDark);
+  background: var(--lightestDark);
+  border-radius: 5px;
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 }
 
 .searchBar {
-  width: 75%;
+  width: 85%;
   height: 100%;
+  padding: 0 1vw;
+  position: relative;
+}
+
+.clearName {
+  position: absolute;
+  font-size: 1vw;
+  color: var(--dark);
+  top: 50%;
+  transform: translateY(-50%);
+  right: 0;
+  cursor: pointer;
 }
 
 .searchBar input {
@@ -76,28 +93,51 @@
   width: 100%;
   height: 80%;
   overflow: auto;
-}
-
-.contact {
-  width: 100%;
-  height: 10%;
-  margin-bottom: 20px;
-  background-color: var(--darkest);
-  border-radius: 5px;
   display: flex;
-  color: var(--light);
-  padding: 0 20px;
+  flex-direction: column;
+  gap: 10px;
 }
 
-.contactName {
-  margin: auto;
-  margin-left: 0;
-  font-size: 1vw;
+.users {
+  position: absolute;
+  left: 0;
+  top: calc(100% + 0.5vw);
+  background: white;
+  width: 100%;
+  border-radius: 5px;
+  padding: 0.5vw;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5vw;
 }
 
-.options {
-  margin: auto;
-  margin-right: 0;
-  font-size: 0.75vw;
-  cursor: pointer;
+@media only screen and (min-width: 0px) and (max-width: 480px) {
+  .headerText {
+    font-size: 6vw;
+  }
+
+  .search {
+    height: 10%;
+  }
+
+  .searchIcon {
+    font-size: 4vw;
+  }
+
+  .searchBar {
+    width: 85%;
+    padding: 0 2vw;
+  }
+
+  .clearName {
+    font-size: 4vw;
+    color: var(--lightestDark);
+    right: 2vw;
+  }
+
+  .users {
+    top: calc(100% + 1vw);
+    padding: 5px;
+    gap: 5px;
+  }
 }
