@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/PingIt/static/css/main.57bfbea8.css",
+    "main.js": "/PingIt/static/js/main.3fc21376.js",
+    "index.html": "/PingIt/index.html",
+    "main.57bfbea8.css.map": "/PingIt/static/css/main.57bfbea8.css.map",
+    "main.3fc21376.js.map": "/PingIt/static/js/main.3fc21376.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.57bfbea8.css",
+    "static/js/main.3fc21376.js"
+  ]
+}
