@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/PingIt/static/css/main.2956b1d7.css",
-    "main.js": "/PingIt/static/js/main.b01a8e25.js",
+    "main.js": "/PingIt/static/js/main.8301309f.js",
     "index.html": "/PingIt/index.html",
     "main.2956b1d7.css.map": "/PingIt/static/css/main.2956b1d7.css.map",
-    "main.b01a8e25.js.map": "/PingIt/static/js/main.b01a8e25.js.map"
+    "main.8301309f.js.map": "/PingIt/static/js/main.8301309f.js.map"
   },
   "entrypoints": [
     "static/css/main.2956b1d7.css",
-    "static/js/main.b01a8e25.js"
+    "static/js/main.8301309f.js"
   ]
 }
